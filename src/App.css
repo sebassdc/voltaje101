@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+body {
+  background: #0C6758;
+  font-family: "Poppins", sans-serif; }
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%; }
+  .auth .auth__card {
+    background-color: white;
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; }
+    .auth .auth__card .auth__card__tabs .auth__card__tab {
+      margin-left: 10px; }
+      .auth .auth__card .auth__card__tabs .auth__card__tab--selected {
+        border-bottom: 3px solid red;
+        transition: all linear 0.1s; }
+      .auth .auth__card .auth__card__tabs .auth__card__tab:hover {
+        border-bottom: 3px solid #FFDF36;
+        transition: all linear .1s; }
+    .auth .auth__card__form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      align-items: center; }
+      .auth .auth__card__form .auth__card__field {
+        width: 90%;
+        font-size: 20px;
+        padding: 0 10px 0 10px;
+        height: 40px;
+        margin-top: 10px;
+        background-color: #f7f7f7;
+        border: 1px solid lightgrey;
+        outline: none; }
+      .auth .auth__card__form .auth__card__btn {
+        margin-top: 30px;
+        width: 80%;
+        height: 40px;
+        background-color: #FFDF36;
+        text-transform: uppercase;
+        color: white;
+        border: none;
+        font-weight: bold; }
