@@ -1,7 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins");
+@font-face {
+  font-family: 'Poppins';
+  src: './assets/Poppins-Regular.ttf'; }
+
 body {
-  background: #0C6758;
-  font-family: "Poppins", sans-serif; }
+  background: #005244;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  width: 100vw; }
+
+#root, .app {
+  height: 100%;
+  width: 100%; }
 
 .auth {
   display: flex;
@@ -13,7 +22,6 @@ body {
   width: 100%; }
   .auth .auth__card {
     background-color: white;
-    width: 30%;
     padding: 20px;
     display: flex;
     flex-direction: column; }
@@ -49,3 +57,57 @@ body {
         color: white;
         border: none;
         font-weight: bold; }
+
+.dashboard-title {
+  padding: 50px;
+  color: #FFDF36;
+  font-family: "Poppins", sans-serif; }
+  .dashboard-title h1 {
+    font-size: 60px; }
+
+.dashboard-body {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.dashboard-body__container {
+  width: calc(100vw - 100px);
+  display: flex;
+  flex-wrap: wrap; }
+
+.dashboard-component {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #FFDF36;
+  border-radius: 15px;
+  margin: 10px;
+  width: calc(((100vw - 100px) * 0.25) - 21px);
+  height: calc((100vw - 100px) * 0.20);
+  font-family: "Poppins", sans-serif;
+  color: white;
+  padding: 20px; }
+  .dashboard-component span {
+    font-size: 70px; }
+  @media (max-width: 1024px) {
+    .dashboard-component {
+      width: calc(((100vw - 100px) * 0.33) - 21px);
+      height: calc((100vw - 100px) * 0.27); } }
+  @media (max-width: 768px) {
+    .dashboard-component {
+      width: calc(((100vw - 100px) * 0.50) - 21px);
+      height: calc((100vw - 100px) * 0.45); } }
+  @media (max-width: 566px) {
+    .dashboard-component {
+      width: calc(((100vw - 100px)) - 21px);
+      height: calc((100vw - 100px)); } }
+
+.editor {
+  height: 100%;
+  width: 100%;
+  display: flex; }
+  .editor .editor-input {
+    margin: 30px;
+    padding: 20px; }

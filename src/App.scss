@@ -1,66 +1,31 @@
 @import './variables';
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 
-$font-main: 'Poppins', sans-serif;
+@font-face {
+  font-family: 'Poppins';
+  src: './assets/Poppins-Regular.ttf';
+}
 
 body {
   background: $azulverdoso;
   font-family: $font-main;
+  height: 100vh;
+  width: 100vw;
 }
 
-.auth {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  bottom: 0;
-  position: absolute;
+#root, .app {
+  height: 100%;
   width: 100%;
-  .auth__card {
-    background-color: white;
-    width: 30%;
+}
+
+@import './containers/AuthPage/auth';
+@import './containers/Dashboard/dashboard';
+
+.editor {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  .editor-input {
+    margin: 30px;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    .auth__card__tabs {
-      .auth__card__tab {
-        margin-left: 10px;
-        &--selected {
-          border-bottom: 3px solid red;
-          transition: all linear 0.1s;
-        }
-        &:hover {
-          border-bottom: 3px solid $amaCaterpilar;
-          transition: all linear .1s;
-        }
-      }
-    }
-    &__form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      margin-top: 10px;
-      align-items: center;
-      .auth__card__field {
-        width: 90%;
-        font-size: 20px;
-        padding: 0 10px 0 10px;
-        height: 40px;
-        margin-top: 10px;
-        background-color: #f7f7f7;
-        border: 1px solid lightgrey;
-        outline: none;
-      }
-      .auth__card__btn {
-        margin-top: 30px;
-        width: 80%;
-        height: 40px;
-        background-color: $amaCaterpilar;
-        text-transform: uppercase;
-        color: white;
-        border: none;
-        font-weight: bold;
-      }
-    }
   }
 }

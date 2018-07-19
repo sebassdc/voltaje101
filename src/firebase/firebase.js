@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
-
+import 'firebase/auth'
+import 'firebase/database'
 const config = {
   apiKey: 'AIzaSyCMUn4IB2YjrwCoFezVtcQOrztKS_ACZLs',
   authDomain: 'voltaje101-fd539.firebaseapp.com',
@@ -14,7 +15,9 @@ if (!firebase.apps.length) {
 }
 
 const auth = firebase.auth()
+const database = firebase.database()
 
 export {
-  auth
+  auth,
+  database
 }

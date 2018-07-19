@@ -1,0 +1,11 @@
+AND AND_0
+NOT NOT_0
+OUT out_1
+
+wire n1, n2, n3
+
+main(0, 1, out_1):
+  0 n1
+  0 n2
+  AND_0 n3 n1 n2
+  NOT_0 out_1 n3

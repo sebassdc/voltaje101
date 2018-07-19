@@ -1,0 +1,15 @@
+{
+  "name": "OR",
+  "id": "OR",
+  "uid": "OR_0",
+  "n": 0,
+  "type": "primitive",
+  "in": [
+    "ain",
+    "bin"
+  ],
+  "out": ["cout"],
+  "operations": [
+  {"logical_operation": "a || b", "out": "cout"}
+  ]
+}

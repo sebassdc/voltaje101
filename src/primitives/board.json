@@ -1,0 +1,34 @@
+{
+  "name": "Board example",
+  "id": "board",
+  "uid": 0,
+  "type": "compound",
+  "in": [
+    "0",
+    "1"
+  ],
+  "out": [
+    "OUT"
+  ],
+  "wires": [
+    "n1",
+    "n2",
+    "n3"
+  ],
+  "components": [
+    {
+      "uid": "AND_0",
+      "id": "AND"
+    },
+    {
+      "uid": "NOT_0",
+      "id": "NOT"
+    }
+  ],
+  "conections": [
+    "0 n1",
+    "1 n2",
+    "AND_0 n3 n1 n2",
+    "n3 OUT"
+  ]
+}
