@@ -121,7 +121,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 30px; }
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     .contact-body__container {
       padding: 10px; } }
 
@@ -175,7 +175,17 @@ body {
   text-transform: uppercase;
   color: white;
   border: none;
-  font-weight: bold; }
+  font-weight: bold;
+  cursor: pointer; }
+
+.input-error {
+  border: 1px solid red; }
+
+.input-error__text {
+  color: #FFDF36;
+  margin-top: 30px; }
+  .input-error__text span {
+    font-size: 20px; }
 
 .contact-component__container {
   margin-top: 20px;
@@ -183,7 +193,7 @@ body {
   justify-content: space-between; }
 
 .contact-component__divisor {
-  margin: 0 5px; }
+  margin: 0 15px; }
 
 .contact-footer {
   display: flex;

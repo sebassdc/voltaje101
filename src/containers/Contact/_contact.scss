@@ -24,7 +24,7 @@
   flex-wrap: wrap;
   padding: 30px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     padding: 10px;
   }
 }
@@ -85,6 +85,19 @@
   color: white;
   border: none;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+.input-error__text {
+  color: $amaCaterpilar;
+  margin-top: 30px;
+  span{
+    font-size: 20px;
+  }
 }
 
 .contact-component__container {
@@ -94,7 +107,7 @@
 }
 
 .contact-component__divisor {
-  margin: 0 5px;
+  margin: 0 15px;
 }
 
 .contact-footer {

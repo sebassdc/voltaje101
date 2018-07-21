@@ -10,7 +10,9 @@ export default class Contact extends Component {
   
   state = {
     email: '',
-    textArea: ''
+    textArea: '',
+    invalidEmail: false,
+    invalidTextArea: false
   }
 
   handleInputChange = ({target}) => {
@@ -19,16 +21,30 @@ export default class Contact extends Component {
     })
   }
 
-  handleSubmit = () => {
-    if (this.state.email) {
-      // Validation
-      if (this.state.password === this.state.repeatPassword)
-      auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .catch(error => console.log('Register error: ', error))
+  handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('handleSubmit')
+    console.log('e.target.checkValidity()' ,e.target.checkValidity())
+    if (e.target.checkValidity()) {
+      console.log('sending form')
     } else {
-
+      console.log('invalid form')
+      console.log('e.target.email.checkValidity()', e.target.email.checkValidity())
+      if (this.state.textArea.length < 10) {
+        console.log('el mensaje debe ser mayor a diez caracteres.')
+        this.setState({invalidTextArea: true})
+        e.target.textArea.focus()
+      } else {
+        this.setState({invalidTextArea: false})
+      }
+      if (!e.target.email.checkValidity()) {
+        console.log('invalid email')
+        this.setState({invalidEmail: true})
+        e.target.email.focus()
+      } else {
+        this.setState({invalidEmail: false})
+      }
     }
-    auth.signIn(this.state.email, this.state.password)
   }
 
   render() {
@@ -82,22 +98,34 @@ export default class Contact extends Component {
           </div>
 
           <div className="contact-body__container">
-            <form className="contact-component-adaptable" onSubmit={this.handleSubmit}>
+            <form 
+              className="contact-component-adaptable"
+              onSubmit={this.handleSubmit}
+              noValidate
+              autoComplete="off">
               <h4 className="align-self-center">O puedes enviar un correo a soporte.</h4>
               <img src={logoHelp} className="align-self-center" alt="help"/>
               <input 
                 onChange={this.handleInputChange} 
+                className={`${(this.state.invalidEmail ? 'input-error' : '')} contact-component__field`}
                 value={email}
-                name="email" type="email" placeholder="Tu correo" className="contact-component__field" required/>
+                placeholder="Tu correo" 
+                name="email" type="email"  required/>
+                {
+                  this.state.invalidEmail && <div className="input-error__text"> <span> Correo invalido.</span></div>
+                }
               <br/>
               <textarea 
                 onChange={this.handleInputChange}
+                className={`${(this.state.invalidTextArea ? 'input-error' : '')} contact-component__textArea`}
                 value={textArea} 
                 placeholder="Redacta tu mensaje aqui"
                 name="textArea"
-                cols="30" rows="10" className="contact-component__textArea"></textarea>
-              <br/>
-              <input className="contact-component__btn" type="button" value="enviar" />
+                cols="30" rows="10" ></textarea>
+                {
+                  this.state.invalidEmail && <div className="input-error__text"> <span> El mensaje debe ser mayor a 10 caracteres </span></div>
+                }
+              <button className="contact-component__btn"> Enviar</button>
             </form>
           </div>
 
