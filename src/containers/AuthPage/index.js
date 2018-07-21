@@ -2,19 +2,35 @@ import React, { Component } from 'react'
 import { auth } from '../../firebase'
 
 export default class AuthPage extends Component {
-  constructor(props){
-    super()
-    this.state = {
-      login: true,
-      register: false,
-      email: '',
-      password: ''
-    }
+  
+  state = {
+    login: true,
+    register: false,
+    email: '',
+    password: '',
+    repeatPassword: ''
+  }
+
+  selectLogin = () => {
+    this.setState({register: false})
+  }
+  selectRegister = () => {
+    this.setState({register: true})
   }
 
   handleChangeField = (e)=> this.setState({[e.target.name]: e.target.value})
 
-  handleSubmit = ()=> auth.signIn(this.state.email, this.state.password)
+  handleSubmit = () => {
+    if (this.state.register) {
+      // Validation
+      if (this.state.password === this.state.repeatPassword)
+      auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .catch(error => console.log('Register error: ', error))
+    } else {
+
+    }
+    auth.signIn(this.state.email, this.state.password)
+  }
 
   render() {
     return (
