@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 import { auth } from '../../firebase/firebase'
 
-const {
-  createUserWithEmailAndPassword: signUp,
-  signInWithEmailAndPassword: signIn,
-} = auth
-
 export default class AuthPage extends Component {
   
   state = {
-    login: true,
     register: false,
     badRepeatPassword: false,
     email: '',
@@ -26,7 +20,8 @@ export default class AuthPage extends Component {
 
   handleChangeField = (e)=> this.setState({[e.target.name]: e.target.value})
 
-  handleSubmit = () => {
+  handleSubmit = e => {
+    e.preventDefault()
     // Choose beetween registering or login
     if (this.state.register) { // Register
       // Validation repeat password
@@ -34,12 +29,12 @@ export default class AuthPage extends Component {
         this.setState({badRepeatPassword: true})
       } else {
         this.setState({ badRepeatPassword: false })
-        signUp(this.state.email, this.state.password)
+        auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
           .catch(error => console.log('Register error: ', error))
       }
     }
     else { // Login
-      signIn(this.state.email, this.state.password)
+      auth.signInWithEmailAndPassword(this.state.email, this.state.password)
         .catch(error => console.log('Login error', error))
     }
   }
@@ -47,6 +42,7 @@ export default class AuthPage extends Component {
   render() {
     return (
       <div className='auth'>
+        {/* <Redirect></Redirect> */}
         <div className='auth__card'>
           <div className='auth__card__tabs'>
             <span
@@ -84,7 +80,10 @@ export default class AuthPage extends Component {
               type='password' 
               className={`auth__card__field ${this.state.register ? 'register' : 'login'} ${this.state.badRepeatPassword ? 'bad' : ''}`}
             />
-            <input type='submit' value='Ingresar' className='auth__card__btn'/>
+            <button
+              className='auth__card__btn'
+              onClick={this.handleSubmit}
+              >Ingresar</button>
           </form>
         </div>
       </div>
