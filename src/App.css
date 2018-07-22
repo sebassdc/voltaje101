@@ -26,6 +26,7 @@ body {
     display: flex;
     flex-direction: column; }
     .auth .auth__card .auth__card__tabs .auth__card__tab {
+      cursor: pointer;
       margin-left: 10px; }
       .auth .auth__card .auth__card__tabs .auth__card__tab--selected {
         border-bottom: 3px solid red;
@@ -39,24 +40,32 @@ body {
       flex-direction: column;
       margin-top: 10px;
       align-items: center; }
-      .auth .auth__card__form .auth__card__field {
-        width: 90%;
-        font-size: 20px;
-        padding: 0 10px 0 10px;
-        height: 40px;
-        margin-top: 10px;
-        background-color: #f7f7f7;
-        border: 1px solid lightgrey;
-        outline: none; }
-      .auth .auth__card__form .auth__card__btn {
-        margin-top: 30px;
-        width: 80%;
-        height: 40px;
-        background-color: #FFDF36;
-        text-transform: uppercase;
-        color: white;
-        border: none;
-        font-weight: bold; }
+
+.auth__card__field {
+  width: 90%;
+  font-size: 20px;
+  padding: 0 10px 0 10px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid lightgrey;
+  outline: none; }
+  .auth__card__field.register {
+    display: block; }
+  .auth__card__field.login {
+    display: none; }
+  .auth__card__field.bad {
+    border: 1px solid red; }
+
+.auth__card__btn {
+  margin-top: 30px;
+  width: 80%;
+  height: 40px;
+  background-color: #FFDF36;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  font-weight: bold; }
 
 .dashboard-title {
   padding: 50px;

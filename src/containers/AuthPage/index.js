@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
-import { auth } from '../../firebase'
+import { auth } from '../../firebase/firebase'
+
+const {
+  createUserWithEmailAndPassword: signUp,
+  signInWithEmailAndPassword: signIn,
+} = auth
 
 export default class AuthPage extends Component {
   
   state = {
     login: true,
     register: false,
+    badRepeatPassword: false,
     email: '',
     password: '',
-    repeatPassword: ''
+    repeatPassword: '',
   }
 
   selectLogin = () => {
@@ -21,15 +27,21 @@ export default class AuthPage extends Component {
   handleChangeField = (e)=> this.setState({[e.target.name]: e.target.value})
 
   handleSubmit = () => {
-    if (this.state.register) {
-      // Validation
-      if (this.state.password === this.state.repeatPassword)
-      auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .catch(error => console.log('Register error: ', error))
-    } else {
-
+    // Choose beetween registering or login
+    if (this.state.register) { // Register
+      // Validation repeat password
+      if (this.state.password !== this.state.repeatPassword) {
+        this.setState({badRepeatPassword: true})
+      } else {
+        this.setState({ badRepeatPassword: false })
+        signUp(this.state.email, this.state.password)
+          .catch(error => console.log('Register error: ', error))
+      }
     }
-    auth.signIn(this.state.email, this.state.password)
+    else { // Login
+      signIn(this.state.email, this.state.password)
+        .catch(error => console.log('Login error', error))
+    }
   }
 
   render() {
@@ -39,11 +51,13 @@ export default class AuthPage extends Component {
           <div className='auth__card__tabs'>
             <span
               className={`auth__card__tab`}
+              onClick={this.selectLogin}
             >
               Iniciar Sesion
             </span>
             <span 
               className={`auth__card__tab`}
+              onClick={this.selectRegister}
             >
               Registro
             </span>
@@ -62,6 +76,13 @@ export default class AuthPage extends Component {
               placeholder='Contraseña' 
               type='password' 
               className='auth__card__field'
+            />
+            <input 
+              onChange={this.handleChangeField} 
+              name='repeatPassword'
+              placeholder='Repetir contraseña' 
+              type='password' 
+              className={`auth__card__field ${this.state.register ? 'register' : 'login'} ${this.state.badRepeatPassword ? 'bad' : ''}`}
             />
             <input type='submit' value='Ingresar' className='auth__card__btn'/>
           </form>
