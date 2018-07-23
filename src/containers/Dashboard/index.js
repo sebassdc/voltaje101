@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { logOut } from '../../redux/actions/user'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class Dashboard extends Component {
   state = {
@@ -85,6 +88,10 @@ class Dashboard extends Component {
   }
 
   render() {
+    if (!this.props.user) {
+      return <Redirect to='/'/>
+    }
+
     return (
       <div className='dashboard'>
         <div className='dashboard-title'>
@@ -112,4 +119,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard
+export default connect(state=> ({ user: state.user.user }))(Dashboard)
