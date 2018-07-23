@@ -14,8 +14,7 @@ body {
 
 .auth {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   top: 0;
   bottom: 0;
   position: absolute;
@@ -40,6 +39,18 @@ body {
       flex-direction: column;
       margin-top: 10px;
       align-items: center; }
+
+.auth-title {
+  padding: 20px;
+  color: #FFDF36;
+  font-family: "Poppins", sans-serif; }
+  .auth-title img {
+    width: 300px; }
+
+.auth-body {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .auth__card__field {
   width: 90%;
@@ -97,7 +108,9 @@ body {
   height: calc((100vw - 100px) * 0.20);
   font-family: "Poppins", sans-serif;
   color: white;
-  padding: 20px; }
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer; }
   .dashboard-component span {
     font-size: 70px; }
   @media (max-width: 1024px) {
@@ -112,6 +125,8 @@ body {
     .dashboard-component {
       width: calc(((100vw - 100px)) - 21px);
       height: calc((100vw - 100px)); } }
+  .dashboard-component:hover {
+    background: #408973; }
 
 .contact-title {
   padding: 50px;
