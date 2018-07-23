@@ -1,7 +1,6 @@
 .auth {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   top: 0;
   bottom: 0;
   position: absolute;
@@ -33,6 +32,20 @@
       align-items: center;
     }
   }
+}
+.auth-title {
+  padding: 20px;
+  color: $amaCaterpilar;
+  font-family: $font-main;
+  img {
+    width: 300px;
+  }
+}
+
+.auth-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .auth__card__field {
