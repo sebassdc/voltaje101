@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import { auth } from '../../firebase'
 import logo from '../../assets/img/VOLTAJE101.svg'
 import logoCustomerService from '../../assets/img/customer-service.svg'
 import logoQuestion from '../../assets/img/question.svg'
