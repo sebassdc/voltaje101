@@ -1,4 +1,8 @@
 import { combineReducers } from 'redux'
-import mock from './mock'
+import user from './user'
+import components from './components'
 
-export default combineReducers({mock})
+export default combineReducers({
+  user,
+  components,
+})

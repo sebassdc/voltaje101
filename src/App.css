@@ -14,8 +14,7 @@ body {
 
 .auth {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   top: 0;
   bottom: 0;
   position: absolute;
@@ -26,6 +25,7 @@ body {
     display: flex;
     flex-direction: column; }
     .auth .auth__card .auth__card__tabs .auth__card__tab {
+      cursor: pointer;
       margin-left: 10px; }
       .auth .auth__card .auth__card__tabs .auth__card__tab--selected {
         border-bottom: 3px solid red;
@@ -39,24 +39,44 @@ body {
       flex-direction: column;
       margin-top: 10px;
       align-items: center; }
-      .auth .auth__card__form .auth__card__field {
-        width: 90%;
-        font-size: 20px;
-        padding: 0 10px 0 10px;
-        height: 40px;
-        margin-top: 10px;
-        background-color: #f7f7f7;
-        border: 1px solid lightgrey;
-        outline: none; }
-      .auth .auth__card__form .auth__card__btn {
-        margin-top: 30px;
-        width: 80%;
-        height: 40px;
-        background-color: #FFDF36;
-        text-transform: uppercase;
-        color: white;
-        border: none;
-        font-weight: bold; }
+
+.auth-title {
+  padding: 20px;
+  color: #FFDF36;
+  font-family: "Poppins", sans-serif; }
+  .auth-title img {
+    width: 300px; }
+
+.auth-body {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.auth__card__field {
+  width: 90%;
+  font-size: 20px;
+  padding: 0 10px 0 10px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid lightgrey;
+  outline: none; }
+  .auth__card__field.register {
+    display: block; }
+  .auth__card__field.login {
+    display: none; }
+  .auth__card__field.bad {
+    border: 1px solid red; }
+
+.auth__card__btn {
+  margin-top: 30px;
+  width: 80%;
+  height: 40px;
+  background-color: #FFDF36;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  font-weight: bold; }
 
 .dashboard-title {
   padding: 50px;
@@ -88,7 +108,9 @@ body {
   height: calc((100vw - 100px) * 0.20);
   font-family: "Poppins", sans-serif;
   color: white;
-  padding: 20px; }
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer; }
   .dashboard-component span {
     font-size: 70px; }
   @media (max-width: 1024px) {
@@ -103,6 +125,56 @@ body {
     .dashboard-component {
       width: calc(((100vw - 100px)) - 21px);
       height: calc((100vw - 100px)); } }
+  .dashboard-component:hover {
+    background: #408973; }
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out; }
+  .modal-container.showed {
+    visibility: visible; }
+
+.modal {
+  padding: 20px;
+  margin: 40px;
+  background: #CCC;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px; }
+
+.modal-x {
+  padding: 10px;
+  color: #005244;
+  border: transparent;
+  margin-left: 50px; }
+
+.dashboard-newcomp-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px; }
+
+.dashboard-newcomp-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  font-size: 20px; }
+  .dashboard-newcomp-body input {
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px; }
+  .dashboard-newcomp-body button {
+    margin: 10px;
+    padding: 10px; }
 
 .contact-title {
   padding: 50px;
@@ -237,6 +309,51 @@ body {
 .full-width {
   width: 100%; }
 
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; }
+
+.profile__pictureWrapper {
+  width: 300px;
+  height: 300px;
+  background-color: lightgreen;
+  position: relative;
+  margin-top: 60px; }
+  .profile__pictureWrapper--picture {
+    width: 100%;
+    height: 100%; }
+  .profile__pictureWrapper--icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer; }
+  .profile__pictureWrapper--file {
+    display: none; }
+
+.profile__name {
+  width: 300px;
+  font-size: 20px;
+  padding: 0 10px 0 10px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid lightgrey;
+  outline: none; }
+
+.profile__button {
+  width: 300px;
+  height: 40px;
+  background-color: #FFDF36;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  font-weight: bold;
+  margin-top: 10px; }
+
 .editor {
   height: 100%;
   width: 100%;
@@ -244,3 +361,24 @@ body {
   .editor .editor-input {
     margin: 30px;
     padding: 20px; }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #FFDF36;
+  color: white;
+  padding: 20px; }
+  .navbar__logout {
+    align-self: flex-end;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer; }
+    .navbar__logout:hover {
+      color: #005244;
+      transition: color 0.3s linear; }

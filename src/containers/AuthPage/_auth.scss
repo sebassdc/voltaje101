@@ -1,7 +1,6 @@
 .auth {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   top: 0;
   bottom: 0;
   position: absolute;
@@ -13,6 +12,7 @@
     flex-direction: column;
     .auth__card__tabs {
       .auth__card__tab {
+        cursor: pointer;
         margin-left: 10px;
         &--selected {
           border-bottom: 3px solid red;
@@ -30,26 +30,50 @@
       flex-direction: column;
       margin-top: 10px;
       align-items: center;
-      .auth__card__field {
-        width: 90%;
-        font-size: 20px;
-        padding: 0 10px 0 10px;
-        height: 40px;
-        margin-top: 10px;
-        background-color: #f7f7f7;
-        border: 1px solid lightgrey;
-        outline: none;
-      }
-      .auth__card__btn {
-        margin-top: 30px;
-        width: 80%;
-        height: 40px;
-        background-color: $amaCaterpilar;
-        text-transform: uppercase;
-        color: white;
-        border: none;
-        font-weight: bold;
-      }
     }
   }
+}
+.auth-title {
+  padding: 20px;
+  color: $amaCaterpilar;
+  font-family: $font-main;
+  img {
+    width: 300px;
+  }
+}
+
+.auth-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth__card__field {
+  width: 90%;
+  font-size: 20px;
+  padding: 0 10px 0 10px;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid lightgrey;
+  outline: none;
+  &.register {
+    display: block;
+  }
+  &.login {
+    display: none;
+  }
+  &.bad {
+    border: 1px solid red;
+  }
+}
+.auth__card__btn {
+  margin-top: 30px;
+  width: 80%;
+  height: 40px;
+  background-color: $amaCaterpilar;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  font-weight: bold;
 }
