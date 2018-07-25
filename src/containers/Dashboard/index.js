@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+
 import Modal from './Modal'
-import { connect } from 'react-redux'
+import { logOut } from '../../redux/actions/user'
+import { Redirect } from 'react-router-dom'
 import { createNewComponent } from '../../redux/actions/components'
 import { retrieveComponents } from '../../redux/actions/components'
+import { connect } from 'react-redux'
 
 class Dashboard extends Component {
   state = {
@@ -53,7 +56,10 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log('components on dashboard', this.props.components)
+
+    if (!this.props.user) {
+      return <Redirect to='/'/>
+    }
     return (
       <div className='dashboard'>
         <Modal showed={this.state.modalShowed}>
