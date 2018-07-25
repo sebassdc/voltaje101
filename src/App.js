@@ -7,7 +7,6 @@ import './App.css'
 import { auth } from './firebase/firebase';
 import { updateUserData } from './redux/actions/user'
 
-
 class App extends React.Component {
   componentDidMount = () => {
     auth.onAuthStateChanged(user => {

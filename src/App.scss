@@ -31,3 +31,28 @@ body {
     padding: 20px;
   }
 }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $amaCaterpilar;
+  color: white;
+  padding: 20px;
+
+  &__logout {
+    align-self: flex-end;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    &:hover{
+      color: $azulverdoso;
+      transition: color 0.3s linear;
+    }
+  }
+}
