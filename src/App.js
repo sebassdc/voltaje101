@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Routes from './routes'
 
 import './App.css'
-import { auth } from './firebase/firebase';
+import { auth, database } from './firebase/firebase';
 import { updateUserData } from './redux/actions/user'
 
 class App extends React.Component {
@@ -22,4 +22,4 @@ class App extends React.Component {
   }
 }
 
-export default connect()(App)
+export default connect(state => ({user: state.user.user}))(App)

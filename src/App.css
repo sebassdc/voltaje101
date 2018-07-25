@@ -128,6 +128,54 @@ body {
   .dashboard-component:hover {
     background: #408973; }
 
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out; }
+  .modal-container.showed {
+    visibility: visible; }
+
+.modal {
+  padding: 20px;
+  margin: 40px;
+  background: #CCC;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px; }
+
+.modal-x {
+  padding: 10px;
+  color: #005244;
+  border: transparent;
+  margin-left: 50px; }
+
+.dashboard-newcomp-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px; }
+
+.dashboard-newcomp-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  font-size: 20px; }
+  .dashboard-newcomp-body input {
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px; }
+  .dashboard-newcomp-body button {
+    margin: 10px;
+    padding: 10px; }
+
 .contact-title {
   padding: 50px;
   color: #FFDF36;
